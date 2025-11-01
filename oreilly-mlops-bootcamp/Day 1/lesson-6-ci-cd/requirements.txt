@@ -1,0 +1,9 @@
+pandas
+scikit-learn
+imblearn
+seaborn
+matplotlib
+mlflow
+pytest
+flask
+joblib

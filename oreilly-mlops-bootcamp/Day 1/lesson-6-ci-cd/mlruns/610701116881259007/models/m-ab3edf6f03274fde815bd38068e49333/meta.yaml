@@ -1,0 +1,10 @@
+artifact_location: file:///Users/ammarmohanna/Desktop/oreilly-mlops-bootcamp/Day%201/lesson-6-ci-cd/mlruns/610701116881259007/models/m-ab3edf6f03274fde815bd38068e49333/artifacts
+creation_timestamp: 1754324128490
+experiment_id: '610701116881259007'
+last_updated_timestamp: 1754324129900
+model_id: m-ab3edf6f03274fde815bd38068e49333
+model_type: null
+name: model
+source_run_id: 38990b00145741fb8419708b81f5f91e
+status: 2
+status_message: null

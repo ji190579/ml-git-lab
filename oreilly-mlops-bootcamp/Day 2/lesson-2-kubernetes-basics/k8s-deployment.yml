@@ -1,0 +1,33 @@
+---
+apiVersion: v1  
+kind: Service   # Type of resource being created
+metadata:
+  name: age-detect  # Name of the Service
+spec:
+  type: NodePort        # Service type that exposes the pod on a node IP and port
+  selector:
+    app: age-detect  # Must match the label on the pod
+  ports:
+    - port: 8080         # Port exposed inside the cluster
+      nodePort: 30600    # Port exposed on each node for external access
+---
+apiVersion: apps/v1    
+kind: Deployment        # Type of resource being created
+metadata:
+  name: age-detect  # Name of the Deployment
+spec:
+  replicas: 1           # Number of pod instances to run
+  selector:
+    matchLabels:
+      app: age-detect  # Must match the pod label
+  template:
+    metadata:
+      labels:
+        app: age-detect  # Label used to identify pods for this deployment
+    spec:
+      containers:
+        - name: age-detect              # Name of the container
+          image: age-detect:latest   # Docker image to deploy
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080           # Port the container listens on
