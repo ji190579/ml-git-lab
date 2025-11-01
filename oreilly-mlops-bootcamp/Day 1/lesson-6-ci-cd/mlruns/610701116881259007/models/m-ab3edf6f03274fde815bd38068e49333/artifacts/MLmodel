@@ -1,0 +1,22 @@
+artifact_path: file:///Users/ammarmohanna/Desktop/oreilly-mlops-bootcamp/Day%201/lesson-6-ci-cd/mlruns/610701116881259007/models/m-ab3edf6f03274fde815bd38068e49333/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.13
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.6.1
+mlflow_version: 3.1.1
+model_id: m-ab3edf6f03274fde815bd38068e49333
+model_size_bytes: 85203606
+model_uuid: m-ab3edf6f03274fde815bd38068e49333
+prompts: null
+run_id: 38990b00145741fb8419708b81f5f91e
+utc_time_created: '2025-08-04 16:15:28.499106'

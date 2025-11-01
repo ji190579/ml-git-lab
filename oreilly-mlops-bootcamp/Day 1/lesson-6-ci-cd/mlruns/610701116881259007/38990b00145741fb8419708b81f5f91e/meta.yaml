@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/ammarmohanna/Desktop/oreilly-mlops-bootcamp/Day%201/lesson-6-ci-cd/mlruns/610701116881259007/38990b00145741fb8419708b81f5f91e/artifacts
+end_time: 1754324129903
+entry_point_name: ''
+experiment_id: '610701116881259007'
+lifecycle_stage: active
+run_id: 38990b00145741fb8419708b81f5f91e
+run_name: wistful-grub-389
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754324119142
+status: 3
+tags: []
+user_id: ammarmohanna

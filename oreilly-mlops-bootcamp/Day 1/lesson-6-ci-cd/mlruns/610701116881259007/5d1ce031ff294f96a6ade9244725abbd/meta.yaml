@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/ammarmohanna/Desktop/oreilly-mlops-bootcamp/Day%201/lesson-6-ci-cd/mlruns/610701116881259007/5d1ce031ff294f96a6ade9244725abbd/artifacts
+end_time: 1754218899635
+entry_point_name: ''
+experiment_id: '610701116881259007'
+lifecycle_stage: active
+run_id: 5d1ce031ff294f96a6ade9244725abbd
+run_name: stylish-koi-281
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754218889036
+status: 3
+tags: []
+user_id: ammarmohanna

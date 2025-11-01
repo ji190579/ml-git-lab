@@ -1,0 +1,8 @@
+pandas
+scikit-learn
+imblearn
+seaborn
+matplotlib
+mlflow
+pytest
+prometheus-client

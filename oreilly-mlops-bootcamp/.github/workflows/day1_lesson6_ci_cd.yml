@@ -1,0 +1,88 @@
+name: Day 1 Lesson 6 - ML Model CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Day 1/lesson-6-ci-cd/**'  # Only trigger when files in this lesson change
+      - .github/workflows/day1_lesson6_ci_cd.yml
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'Day 1/lesson-6-ci-cd/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Change to lesson directory
+      run: cd "Day 1/lesson-6-ci-cd"
+
+    - name: Install dependencies
+      run: |
+        cd "Day 1/lesson-6-ci-cd"
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Train model for testing
+      run: |
+        cd "Day 1/lesson-6-ci-cd"
+        python train.py
+
+    - name: Run pytest
+      run: |
+        cd "Day 1/lesson-6-ci-cd"
+        pytest
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        cd "Day 1/lesson-6-ci-cd"
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Train model for deployment
+      run: |
+        cd "Day 1/lesson-6-ci-cd"
+        python train.py
+
+    - name: Build Docker image
+      run: |
+        cd "Day 1/lesson-6-ci-cd"
+        docker build -t adult_income .
+
+    - name: Run Docker container for Flask app
+      run: |
+        cd "Day 1/lesson-6-ci-cd"
+        docker run -d -p 8000:8000 adult_income
+
+    - name: Wait and test Flask app
+      run: |
+        sleep 10
+        curl -X POST http://localhost:8000/predict \
+          -H "Content-Type: application/json" \
+          -d '{"age": 25, "workclass": "Private", "fnlwgt": 226802, "education": "HS-grad", "education-num": 9, "marital-status": "Never-married", "occupation": "Machine-op-inspct", "relationship": "Own-child", "race": "White", "sex": "Male", "capital-gain": 0, "capital-loss": 0, "hours-per-week": 40, "native-country": "United-States"}' \
+          || echo "Flask app not responding" 

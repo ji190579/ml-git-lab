@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "7c6cc92c-88eb-4ebd-b155-6c296f717a0a",
+		"name": "OReilly-MLOps/LLMOps-live-course",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26990366"
+	},
+	"item": [
+		{
+			"name": "Day 1 - Age detection",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/private/var/folders/b5/tbyh93j92jg5k7z_m4s2bmr40000gn/T/com.apple.Photos.NSItemProvider/uuid=8E5216B8-12E0-47A7-8C07-F92E7F7519AA&code=001&library=1&type=1&mode=1&loc=true&cap=true.jpeg/IMG_53441.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/detect_age",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"detect_age"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Day 1 - Income classification",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"age\": 25,\n  \"workclass\": \"Private\",\n  \"fnlwgt\": 226802,\n  \"education\": \"HS-grad\",\n  \"education-num\": 9,\n  \"marital-status\": \"Never-married\",\n  \"occupation\": \"Craft-repair\",\n  \"relationship\": \"Not-in-family\",\n  \"race\": \"White\",\n  \"sex\": \"Male\",\n  \"capital-gain\": 0,\n  \"capital-loss\": 0,\n  \"hours-per-week\": 40,\n  \"native-country\": \"United-States\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/predict",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"predict"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Day 2 - Full mlops",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"age\": 39,\n  \"workclass\": \"State-gov\",\n  \"fnlwgt\": 77516,\n  \"education\": \"Bachelors\",\n  \"education-num\": 13,\n  \"marital-status\": \"Never-married\",\n  \"occupation\": \"Adm-clerical\",\n  \"relationship\": \"Not-in-family\",\n  \"race\": \"White\",\n  \"sex\": \"Male\",\n  \"capital-gain\": 0,\n  \"capital-loss\": 0,\n  \"hours-per-week\": 40,\n  \"native-country\": \"United-States\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:30800/predict",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "30800",
+					"path": [
+						"predict"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Day 2 - Age detection - k8s",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/ammarmohanna/Desktop/oreilly-mlops-bootcamp/Day 1/lesson-4-docker/images/kid_img.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:30600/detect_age",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "30600",
+					"path": [
+						"detect_age"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Day 2 - A/B testing",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n     \"features\": {\n       \"age\": 50,\n       \"gender\": \"Male\",\n       \"smoking_history\": \"never\",\n       \"hypertension\": 0,\n       \"heart_disease\": 0,\n       \"bmi\": 25.0,\n       \"HbA1c_level\": 6.0,\n       \"blood_glucose_level\": 140\n     },\n     \"true_label\": 1\n   }"
+				},
+				"url": {
+					"raw": "http://localhost:8000/predict",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"predict"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

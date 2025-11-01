@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/ammarmohanna/Desktop/oreilly-mlops-bootcamp/Day%201/lesson-6-ci-cd/mlruns/610701116881259007/ba8123692cc644c28b3af071126018db/artifacts
+end_time: 1751548927097
+entry_point_name: ''
+experiment_id: '610701116881259007'
+lifecycle_stage: active
+run_id: ba8123692cc644c28b3af071126018db
+run_name: ambitious-fish-993
+run_uuid: ba8123692cc644c28b3af071126018db
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1751548917336
+status: 3
+tags: []
+user_id: ammarmohanna
